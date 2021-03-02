@@ -1,3 +1,4 @@
+USE TestingSystem;
 -- Question 1: lấy ra tất cả các phòng ban
 SELECT	*
 FROM	department;
@@ -26,17 +27,56 @@ LIMIT 5;
 -- Question 8: Xóa tất cả các exam được tạo trước ngày 20/12/2019
 DELETE FROM exam WHERE CreateDate < '2019-12-20';
 -- Question 9: Update thông tin của account có id = 5 thành tên "Nguyễn Bá Lộc" và email thành loc.nguyenba@vti.com.vn
-UPDATE 	account 
+UPDATE 	`account`
 SET 	Fullname = N'Nguyễn Bá Lộc',
 		Email = 'loc.nguyenba@vti.com.vn'
 WHERE	AccountID = 5;
 -- Question 10: Viết lệnh để lấy ra danh sách nhân viên và thông tin phòng ban của họ
-
+SELECT 	Fullname,
+		DepartmentName
+FROM		`account`
+INNER JOIN
+			department
+ON		`account`.DepartmentID = department.DepartmentID;
 -- Question 11: Viết lệnh để lấy ra tất cả các developer
+SELECT		*
+FROM		`account`
+INNER JOIN
+			position
+ON			`account`.PositionID = position.PositionID
+WHERE		position.PositionName = 'Dev';
 -- Question 12: Viết lệnh để lấy ra danh sách các phòng ban có >3 nhân viên
+SELECT 	DepartmentID,
+		DepartmentName
+FROM		`account`
+INNER JOIN
+			department
+ON		`account`.DepartmentID = department.DepartmentID
+WHERE	COUNT(`account`.DepartmentID) >3;
 -- Question 13: Viết lệnh để lấy ra danh sách câu hỏi được sử dụng trong đề thi nhiều nhất
+
 -- Question 14: Thông kê mỗi category Question được sử dụng trong bao nhiêu Question
 -- Question 15: Lấy ra Question có nhiều câu trả lời nhất
+SELECT		question.Content,
+			COUNT(answer.QuestionID)
+AS			'So luong'
+FROM		question
+INNER JOIN
+			answer
+ON			question.QuestionID = answer.QuestionID
+GROUP BY	answer.QuestionID
+HAVING 		COUNT(answer.QuestionID) = (
+SELECT 		MAX(Countquestion)
+FROM		(
+SELECT		COUNT(answer.QuestionID) 
+AS 			Countquestion
+FROM		answer
+RIGHT JOIN	
+			question
+ON			answer.QuestionID = question.QuestionID
+GROUP BY	answer.QuestionID)
+AS			MaxCountquestion
+);
 -- Question 16: Tìm chức vụ có ít người nhất
 -- Question 17: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM
 -- Question 18: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, …
