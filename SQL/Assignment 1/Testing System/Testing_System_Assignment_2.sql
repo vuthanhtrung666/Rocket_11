@@ -31,6 +31,7 @@ SET 	Fullname = N'Nguyễn Bá Lộc',
 		Email = 'loc.nguyenba@vti.com.vn'
 WHERE	AccountID = 5;
 -- Question 10: Viết lệnh để lấy ra danh sách nhân viên và thông tin phòng ban của họ
+
 -- Question 11: Viết lệnh để lấy ra tất cả các developer
 -- Question 12: Viết lệnh để lấy ra danh sách các phòng ban có >3 nhân viên
 -- Question 13: Viết lệnh để lấy ra danh sách câu hỏi được sử dụng trong đề thi nhiều nhất
