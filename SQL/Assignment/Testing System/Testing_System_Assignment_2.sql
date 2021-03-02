@@ -24,8 +24,12 @@ FROM 		`group`
 ORDER BY 	CreateDate DESC 
 LIMIT 5;
 -- Question 8: Xóa tất cả các exam được tạo trước ngày 20/12/2019
-
+DELETE FROM exam WHERE CreateDate < '2019-12-20';
 -- Question 9: Update thông tin của account có id = 5 thành tên "Nguyễn Bá Lộc" và email thành loc.nguyenba@vti.com.vn
+UPDATE 	account 
+SET 	Fullname = N'Nguyễn Bá Lộc',
+		Email = 'loc.nguyenba@vti.com.vn'
+WHERE	AccountID = 5;
 -- Question 10: Viết lệnh để lấy ra danh sách nhân viên và thông tin phòng ban của họ
 -- Question 11: Viết lệnh để lấy ra tất cả các developer
 -- Question 12: Viết lệnh để lấy ra danh sách các phòng ban có >3 nhân viên
