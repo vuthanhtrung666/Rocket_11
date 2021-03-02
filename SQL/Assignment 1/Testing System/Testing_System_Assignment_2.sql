@@ -9,7 +9,9 @@ WHERE	DepartmentName='Sale';
 -- Question 3: lấy ra thông tin account có full name dài nhất
 SELECT	*
 FROM	`account`
-WHERE	LENGTH(Fullname) = (SELECT MAX(LENGTH(Fullname)) FROM `account`);
+WHERE	LENGTH(Fullname) = (
+SELECT 	MAX(LENGTH(Fullname)) 
+FROM 	`account`);
 -- Question 4: Lấy ra tên group đã tham gia trước ngày 20/12/2019
 SELECT	GroupName
 FROM	`group`
@@ -25,7 +27,8 @@ FROM 		`group`
 ORDER BY 	CreateDate DESC 
 LIMIT 5;
 -- Question 8: Xóa tất cả các exam được tạo trước ngày 20/12/2019
-DELETE FROM exam WHERE CreateDate < '2019-12-20';
+DELETE FROM	exam 
+WHERE 		CreateDate < '2019-12-20';
 -- Question 9: Update thông tin của account có id = 5 thành tên "Nguyễn Bá Lộc" và email thành loc.nguyenba@vti.com.vn
 UPDATE 	`account`
 SET 	Fullname = N'Nguyễn Bá Lộc',
@@ -54,30 +57,85 @@ INNER JOIN
 ON		`account`.DepartmentID = department.DepartmentID
 WHERE	COUNT(`account`.DepartmentID) >3;
 -- Question 13: Viết lệnh để lấy ra danh sách câu hỏi được sử dụng trong đề thi nhiều nhất
-
+SELECT		q.QuestionID,
+			q.Content,
+            q.CategoryID,
+            q.TypeID,
+            q.CreatorID
+FROM		question AS q
+INNER JOIN	examquestion AS e
+ON			q.QuestionID = e.QuestionID
+GROUP BY	q.QuestionID
+HAVING		COUNT(e.QuestionID) = (
+SELECT		MAX(Countquestion)
+FROM		(
+SELECT		MAX(COUNT(e.QuestionID))
+AS			Countquestion
+FROM		examquestion AS e
+RIGHT JOIN	question AS q
+ON			q.QuestionID = e.QuestionID
+GROUP BY	e.QuestionID )
+AS			MaxCountquestion 
+);
 -- Question 14: Thông kê mỗi category Question được sử dụng trong bao nhiêu Question
+SELECT		c.CategoryID,
+			c.CategoryName,
+            COUNT(q.CategoryID)
+AS			'Số lượng'
+FROM		categoryquestion AS c
+INNER JOIN	question AS q
+ON			c.CategoryID = q.CategoryID
+GROUP BY	q.CategoryID;
 -- Question 15: Lấy ra Question có nhiều câu trả lời nhất
-SELECT		question.Content,
-			COUNT(answer.QuestionID)
-AS			'So luong'
-FROM		question
-INNER JOIN
-			answer
-ON			question.QuestionID = answer.QuestionID
-GROUP BY	answer.QuestionID
-HAVING 		COUNT(answer.QuestionID) = (
+SELECT		q.QuestionID,
+			q.Content,
+			COUNT(a.QuestionID) AS 'So luong'
+FROM		question AS q
+INNER JOIN	answer AS a
+ON			q.QuestionID = a.QuestionID
+GROUP BY	q.QuestionID
+HAVING 		COUNT(a.QuestionID) = (
 SELECT 		MAX(Countquestion)
 FROM		(
-SELECT		COUNT(answer.QuestionID) 
-AS 			Countquestion
-FROM		answer
-RIGHT JOIN	
-			question
-ON			answer.QuestionID = question.QuestionID
-GROUP BY	answer.QuestionID)
+SELECT		COUNT(a.QuestionID) AS Countquestion
+FROM		answer AS a
+RIGHT JOIN	question AS q
+ON			a.QuestionID = q.QuestionID
+GROUP BY	a.QuestionID )
 AS			MaxCountquestion
 );
 -- Question 16: Tìm chức vụ có ít người nhất
+SELECT		p.PositionID,
+			p.PositionName,
+            COUNT(a.PositionID) AS 'Số lượng'
+FROM		position AS p
+INNER JOIN	`account` AS a
+ON			p.PositionID = a.PositionID
+GROUP BY	p.PositionID;
 -- Question 17: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM
+
 -- Question 18: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, …
+SELECT		q.QuestionID,
+			q.Content,
+            c.CategoryName,
+            t.TypeName,
+            ac.Fullname,
+            an.Content
+FROM		question AS q
+INNER JOIN	categoryquestion AS c
+ON			q.CategoryID = c.CategoryID
+INNER JOIN	answer AS an
+ON			q.QuestionID = an.QuestionID
+INNER JOIN	`account` AS ac
+ON			q.CreatorID = ac.AccountID
+INNER JOIN	typequestion AS t
+ON			q.TypeID = t.TypeID
+GROUP BY	q.QuestionID;
 -- Question 19: Lấy ra số lượng câu hỏi của mỗi loại tự luận hay trắc nghiệm
+SELECT		t.TypeID,
+			t.TypeName,
+            COUNT(q.TypeID) AS 'Số lượng'
+FROM		typequestion AS t
+INNER JOIN	question AS q
+ON			t.TypeID = q.TypeID
+GROUP BY	t.TypeID;
