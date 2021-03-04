@@ -108,14 +108,15 @@ CREATE TABLE ExamQuestion(
 
 INSERT INTO Department	(DepartmentName)
 VALUES					(N'Marketing'	),
-						(N'Sale'			),
+						(N'Sale'		),
 						(N'Bảo vệ'		),
 						(N'Thư ký'		),
 						(N'Tài chính'	),
                         (N'Phó giám đốc'),
 						(N'Giám đốc'	),
 						(N'Thư kí'		),
-						(N'Bán hàng'	);
+						(N'Bán hàng'	),
+                        (N'Chờ việc'	);
 
 INSERT INTO Position	(PositionName	)
 VALUES					(N'Dev'			),
@@ -124,7 +125,7 @@ VALUES					(N'Dev'			),
 						(N'PM'			);
 
 INSERT INTO `Account`(Email								, Username			, FullName				, DepartmentID	, PositionID, CreateDate)
-VALUES 				('haidang29productions@gmail.com'	, 'dangblack'		,N'Nguyễn hải Đăng'		,  	5			,   1		,'2020-03-05'),
+VALUES 				('haidang29productions@gmail.com'	, 'dangblack'		,N'Nguyễn hải Đăng'		,  	9			,   1		,'2020-03-05'),
 					('account1@gmail.com'				, 'quanganh'		,N'Nguyen Chien Thang2'	,   1			,   2		,'2020-03-05'),
 					('account2@gmail.com'				, 'vanchien'		,N'Nguyen Van Chien'	,   2			,   3		,'2020-03-07'),
                     ('account3@gmail.com'				, 'cocoduongqua'	,N'Duong Do'			,   3			,   4		,'2020-03-08'),
