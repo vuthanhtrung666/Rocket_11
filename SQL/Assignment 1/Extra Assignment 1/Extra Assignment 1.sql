@@ -14,7 +14,7 @@ CREATE TABLE Trainee (
 	ET_Gmath			TINYINT UNSIGNED CHECK(ET_Gmath>=0 AND ET_Gmath<=20) ,
  	ET_English			TINYINT UNSIGNED CHECK(ET_English>=0 AND ET_English<=50) ,
  	Training_Class		VARCHAR(20) NOT NULL ,
- 	Evaluation_Notes	NVARCHAR(100)  
+ 	Evaluation_Notes	TEXT
 );
 -- Question 2: thêm trường VTI_Account với điều kiện not null & unique
 ALTER TABLE Trainee
@@ -35,6 +35,6 @@ CREATE TABLE Exer2 (
 	ID				INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Name			VARCHAR(50) NOT NULL,
     BirthDate		DATETIME DEFAULT NOW(),
-    Gender			ENUM('0','1','NULL') NOT NULL,
+    Gender			ENUM('0','1'),
     IsDeletedFlag	BIT
 );

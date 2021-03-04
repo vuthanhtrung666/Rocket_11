@@ -187,8 +187,7 @@ VALUES 					(N'Câu hỏi 1'	,	1		,   1		,   1		,'2021-04-05'),
                         (N'Câu hỏi 6'	,	2		,   1		,   6		,'2020-04-06'),
 						(N'Câu hỏi 7'	,	8		,   1		,   7		,'2020-04-07'),
 						(N'Câu hỏi 8'	,	4		,   2		,   8		,'2020-04-07'),
-						(N'Câu hỏi 9'	,	7		,   1		,   9		,'2020-04-07');
-						
+						(N'12345678901234567890'	,	7		,   1		,   9		,'2020-04-07');						
 
 -- Add data Answers
 INSERT INTO Answer	(  Content		, QuestionID	, isCorrect	)
