@@ -81,8 +81,7 @@ AS			MaxCountquestion
 -- Question 14: Thông kê mỗi category Question được sử dụng trong bao nhiêu Question
 SELECT		c.CategoryID,
 			c.CategoryName,
-            COUNT(q.CategoryID)
-AS			'Số lượng'
+            COUNT(q.CategoryID) AS Soluong
 FROM		categoryquestion  c
 INNER JOIN	question  q ON c.CategoryID = q.CategoryID
 GROUP BY	q.CategoryID;
@@ -112,21 +111,22 @@ FROM		position  p
 INNER JOIN	`account`  a ON	p.PositionID = a.PositionID
 GROUP BY	p.PositionID;
 -- Question 17: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM
-SELECT		d.DepartmentID,
-			d.DepartmentName,
+SELECT		d.DepartmentName,
             p.PositionName,
-            COUNT(p.PositionID) AS 'số lượng'
+            COUNT(p.PositionID) AS Soluong
 FROM		department  d
-INNER JOIN	account  a ON d.DepartmentID = a.DepartmentID
-INNER JOIN	position  p ON a.PositionID = p.PositionID
-GROUP BY	d.DepartmentID;
+LEFT JOIN	account  a ON d.DepartmentID = a.DepartmentID
+Left JOIN	position  p ON a.PositionID = p.PositionID
+GROUP BY	d.DepartmentID,p.PositionID
+ORDER BY	d.DepartmentID;
+SELECT		p.PositionName,
+			count(a.PositionID)
+FROM		position p
+JOIN		account a ON p.PositionID = a.PositionID
+GROUP BY	p.PositionID;
+
 -- Question 18: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, …
-SELECT		q.QuestionID,
-			q.Content,
-            c.CategoryName,
-            t.TypeName,
-            ac.Fullname,
-            an.Content
+SELECT		q.QuestionID,q.Content,c.CategoryName,t.TypeName,ac.Fullname,an.Content
 FROM		question  q
 INNER JOIN	categoryquestion  c ON q.CategoryID = c.CategoryID
 INNER JOIN	answer  an 			ON q.QuestionID = an.QuestionID

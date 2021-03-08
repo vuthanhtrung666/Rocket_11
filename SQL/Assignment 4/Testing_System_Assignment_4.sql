@@ -8,7 +8,7 @@ DELIMITER $$
 			SELECT	account.Fullname 
 			FROM	account
             JOIN	department ON account.DepartmentID = department.DepartmentID
-            WHERE	department.DepartmentName = department_name;
+            WHERE	department.DepartmentName LIKE concat('%',department_name,'%');
 		END$$
 DELIMITER ;
 CALL	ques1('Sale');
@@ -49,7 +49,7 @@ DELIMITER $$
 				FROM		question q
 				GROUP BY	q.TypeID) AS maxcountq)
             
-			SELECT 		t.TypeID, t.TypeName, COUNT(q.TypeID) AS Soluong 
+			SELECT 		t.TypeID 
 			FROM		question q
             JOIN		typequestion t ON q.TypeID = t.TypeID
 			GROUP BY	t.TypeID
@@ -60,7 +60,28 @@ DELIMITER $$
 DELIMITER ;
 CALL		ques4;
 -- Question 5: Sử dụng store ở question 4 để tìm ra tên của type question
-
+DROP PROCEDURE IF EXISTS ques5;
+DELIMITER $$
+	CREATE PROCEDURE ques5 ()
+		BEGIN
+			WITH 
+            max_question AS (
+				SELECT		MAX(countq)
+				FROM		(
+				SELECT		COUNT(q.TypeID) AS countq
+				FROM		question q
+				GROUP BY	q.TypeID) AS maxcountq)
+            
+			SELECT 		t.TypeName 
+			FROM		question q
+            JOIN		typequestion t ON q.TypeID = t.TypeID
+			GROUP BY	t.TypeID
+            HAVING		COUNT(q.TypeID) = (
+            SELECT		*
+            FROM		max_question);
+		END $$
+DELIMITER ;
+CALL		ques5;
 -- Question 6: Viết 1 store cho phép người dùng nhập vào 1 chuỗi và trả về group có tên chứa chuỗi của người dùng nhập vào 
 -- hoặc trả về user có username chứa chuỗi của người dùng nhập vào
 DROP PROCEDURE IF EXISTS ques6;
@@ -172,8 +193,8 @@ DELIMITER $$
             SELECT		*
             FROM		id);
             
-            DELETE FROM department
-            WHERE		department.DepartmentName LIKE in_name;
+            DELETE FROM department 
+			WHERE 		department.DepartmentName LIKE in_name;
         END$$
 DELIMITER ;
 CALL 		ques11('Bán hàng');
