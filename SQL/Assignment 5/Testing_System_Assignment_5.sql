@@ -17,8 +17,6 @@ BEGIN
 END$$
 DELIMITER ;
 
-INSERT INTO `Account`(Email								, Username			, FullName				, DepartmentID	, PositionID, CreateDate)
-VALUES 				('acountmau@gmail.com'				, 'blue'			,N'Nguyễn hải Đăng'		,  	2			,   1		,'2020-03-05');
 -- Question 3: Cấu hình 1 group có nhiều nhất là 5 user
 DROP TRIGGER IF EXISTS trig_limit_group;
 DELIMITER $$
@@ -32,8 +30,6 @@ BEGIN
 	END IF;
 END$$
 DELIMITER ;
-INSERT INTO `GroupAccount`	(  GroupID	, AccountID	, JoinDate	 )
-VALUES 						(	1		,    4		,'2021-03-10');
 -- Question 4: Cấu hình 1 bài thi có nhiều nhất là 10 Question
 DROP TRIGGER IF EXISTS trig_max_question;
 DELIMITER $$
@@ -63,11 +59,6 @@ BEGIN
 	END IF;
 END$$
 DELIMITER ;
-INSERT INTO `Account`(Email				, Username			, FullName				, DepartmentID	, PositionID, CreateDate)
-VALUE 				('admin@gmail.com'	, 'dangblacky'		,'Nguyen Hai Dang'		,   '5'			,   '1'		,'2020-03-05');
-DELETE
-FROM `Account`
-WHERE Email = 'admin@gmail.com';
 
 -- Question 6: Không sử dụng cấu hình default cho field DepartmentID của table
 -- Account, hãy tạo trigger cho phép người dùng khi tạo account không điền
@@ -79,7 +70,7 @@ BEFORE INSERT ON account
 FOR EACH ROW
 BEGIN
 	DECLARE WaitingID SMALLINT UNSIGNED;
-    SELECT DepartmentID INTO WaitingID FROM department WHERE DepartmentName LIKE 'Chờ việc';
+    SELECT DepartmentID INTO WaitingID FROM department WHERE DepartmentName LIKE '%Waiting%';
 	IF NEW.DepartmentID = NULL THEN
 		SET NEW.DepartmentID = WaitingID;
 	END IF;
