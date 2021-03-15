@@ -32,14 +32,15 @@ DELIMITER $$
 			SELECT 		t.TypeID, t.TypeName, COUNT(q.TypeID) AS Soluong 
 			FROM		question q
             JOIN	typequestion t ON q.TypeID = t.TypeID
-            WHERE		month(q.CreateDate) = month(now())
+            WHERE		month(q.CreateDate) = month(now())  -- thiếu năm 
 			GROUP BY	t.TypeID;
 		END $$
 DELIMITER ;
+
 -- Question 4: Tạo store để trả ra id của type question có nhiều câu hỏi nhất
 DROP PROCEDURE IF EXISTS ques4;
 DELIMITER $$
-	CREATE PROCEDURE ques4 ()
+	CREATE PROCEDURE ques4 (OUT out_typeid TINYINT)
 		BEGIN
 			WITH 
 			max AS (
@@ -49,7 +50,7 @@ DELIMITER $$
                 ORDER BY	COUNT(q.TypeID) DESC
                 LIMIT		1)
             
-			SELECT 		t.TypeID ,t.TypeName
+			SELECT 		t.TypeID INTO out_typeid
 			FROM		question q
             JOIN		typequestion t ON q.TypeID = t.TypeID
 			GROUP BY	t.TypeID
