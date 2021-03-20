@@ -108,6 +108,7 @@ public class Exercise_1 {
 		System.out.print("Điểm hóa: ");
 		float dh = btScanner.nextFloat();
 		question6(dt,dl,dh);
+		
 	}
 
 	

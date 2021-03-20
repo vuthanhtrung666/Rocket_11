@@ -1,6 +1,6 @@
 package TestingSystem_Assignment_1;
 
 public class TypeQuestion {
-    int id;
-    TypeName name;
+	public int id;
+	public TypeName name;
 }

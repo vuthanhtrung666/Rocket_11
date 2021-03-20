@@ -3,7 +3,7 @@ package TestingSystem_Assignment_1;
 import java.util.Date;
 
 public class GroupAccount {
-	Group group;
-	Account account;
-	Date joinDate;
+	public Group group;
+	public Account account;
+	public Date joinDate;
 }
