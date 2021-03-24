@@ -1,5 +1,6 @@
 package TestingSystem_Assignment_3;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Exercise_1_Datatype_Casting {
@@ -21,8 +22,11 @@ public class Exercise_1_Datatype_Casting {
 //		Question 2:
 //		Lấy ngẫu nhiên 1 số có 5 chữ số (những số dưới 5 chữ số thì sẽ thêm
 //		có số 0 ở đầu cho đủ 5 chữ số)
-		
-		
+		Random random = new Random();
+		int c = random.nextInt(99999);
+		System.out.println("integer:" + c);
+		String format = String.format("%05d", c);
+ 		System.out.println(format);
 //		Question 3:
 //		Lấy 2 số cuối của số ở Question 2 và in ra.
 //		Gợi ý:
