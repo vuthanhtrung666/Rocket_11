@@ -12,6 +12,7 @@ public class Exercise_4_String {
 //		Question 1:
 //		Nhập một xâu kí tự, đếm số lượng các từ trong xâu kí tự đó (các từ có
 //		thể cách nhau bằng nhiều khoảng trắng );
+		
 		Scanner scanner = new Scanner(System.in);
 //		System.out.println("Nhap chuoi ky tu:");
 //		String a = scanner.nextLine();
@@ -19,6 +20,7 @@ public class Exercise_4_String {
 		
 //		Question 2:
 //		Nhập hai xâu kí tự s1, s2 nối xâu kí tự s2 vào sau xâu s1;
+		
 //		System.out.println("Nhap s1:");
 //		String s1 = scanner.nextLine();
 //		System.out.println("Nhap s2:");
@@ -28,6 +30,7 @@ public class Exercise_4_String {
 //		Question 3:
 //		Viết chương trình để người dùng nhập vào tên và kiểm tra, nếu tên chưa
 //		viết hoa chữ cái đầu thì viết hoa lên
+		
 //		System.out.println("Nhap vao chuoi:");
 //		String name = scanner.nextLine();
 //		question3(name);
@@ -40,6 +43,7 @@ public class Exercise_4_String {
 //		"Ký tự thứ 1 là: N"
 //		"Ký tự thứ 1 là: A"
 //		"Ký tự thứ 1 là: M"
+		
 //		String name1 = scanner.next();
 //		name1 = name1.toUpperCase();
 //		question4(name1);
@@ -47,6 +51,7 @@ public class Exercise_4_String {
 //		Question 5:
 //		Viết chương trình để người dùng nhập vào họ, sau đó yêu cầu người
 //		dùng nhập vào tên và hệ thống sẽ in ra họ và tên đầy đủ
+		
 //		question5();
 		
 //		Question 6:
@@ -58,6 +63,7 @@ public class Exercise_4_String {
 //		"Họ là: Nguyễn"
 //		"Tên đệm là: Văn"
 //		"Tên là: Nam"
+		
 //		System.out.println("Nhập tên:");
 //		String name = scanner.nextLine().trim();
 //		question6(name);
@@ -71,22 +77,26 @@ public class Exercise_4_String {
 //		b) Viết hoa chữ cái mỗi từ của người dùng
 //		VD: Nếu người dùng nhập vào " nguyễn văn nam " thì sẽ
 //		chuẩn hóa thành "Nguyễn Văn Nam"
+		
 //		System.out.println("Nhập tên:");
 //		String name1 = scanner.nextLine().trim();
 //		question7(name1);
 		
 //		Question 8:
 //		In ra tất cả các group có chứa chữ "Java"
+		
 //		question8();
 		
 //		Question 9:
 //		In ra tất cả các group "Java"
+		
 //		question9();
 		
 //		Question 10 (Optional):
 //		Kiểm tra 2 chuỗi có là đảo ngược của nhau hay không.
 //		Nếu có xuất ra “OK” ngược lại “KO”.
 //		Ví dụ “word” và “drow” là 2 chuỗi đảo ngược nhau.
+		
 //		String str1 = "hello";
 //		String str2 = "olleh";
 //		question10(str1,str2);
@@ -94,6 +104,7 @@ public class Exercise_4_String {
 		
 //		Question 11 (Optional): Count special Character
 //		Tìm số lần xuất hiện ký tự "a" trong chuỗi
+		
 //		System.out.println("Nhập chuỗi:");
 //		String b = scanner.nextLine();
 //		question11(b);
@@ -107,6 +118,7 @@ public class Exercise_4_String {
 //		Ví dụ:
 //		"abc" => true
 //		"1abc", "abc1", "123", "a1bc", null => false
+		
 //		System.out.println("Nhập chuỗi:");
 //		String c = scanner.nextLine();
 //		question13(c);
@@ -116,6 +128,7 @@ public class Exercise_4_String {
 //		cho trước.
 //		Ví dụ:
 //		"VTI Academy" chuyển ký tự 'e' sang '*' kết quả " VTI Acad*my"
+		
 //		String str = "VTI Academy";
 //		question14(str);
 		
@@ -126,20 +139,21 @@ public class Exercise_4_String {
 //		Các ký tự bên trong chỉ cách nhau đúng một dấu khoảng cách.
 //		Gợi ý: Các bạn cần loại bỏ dấu cách ở đầu và cuối câu, thao tác cắt
 //		chuỗi theo dấu cách
+		
 //		String str;
 //		System.out.println("Chuỗi: ");
 //		str = scanner.nextLine();
 //		question15(str);
+		
 //		Question 16 (Optional):
 //		Cho một chuỗi str và số nguyên n >= 0. Chia chuỗi str ra làm các phần
 //		bằng nhau với n ký tự. Nếu chuỗi không chia được thì xuất ra màn
 //		hình “KO”.
+		
 //		String str;
 //		int n;
-//
 //		System.out.println("Chuỗi: ");
 //		str = scanner.nextLine();
-//
 //		System.out.println("Nhập n: ");
 //		n = scanner.nextInt();
 //		question16(str,n);

@@ -1,8 +1,8 @@
-package TestingSystem_Assignment_1;
+package TestingSystem_Assignment_4.com.vti.entity;
 
 public class Position {
-	public int id;
-	public PositionName name;
+	private int id;
+	private PositionName name;
 	
 	public Position() {
 	}
@@ -32,7 +32,5 @@ public class Position {
 	public String toString() {
 		return "id:" + id + "\nname:" + name ;
 	}
-	
-	
 	
 }

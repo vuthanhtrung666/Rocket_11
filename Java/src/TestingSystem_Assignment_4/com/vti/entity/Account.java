@@ -1,20 +1,22 @@
-package TestingSystem_Assignment_1;
+package TestingSystem_Assignment_4.com.vti.entity;
 
 import java.util.Arrays;
 import java.util.Date;
 
 public class Account {
-	public int id;
-	public String email;
-	public String username;
-	public String fullname;
-	public Department department;
-	public Position position;
-	public Date createDate;
-	public GroupAccount[] groupAccounts;
+	private int id;
+	private String email;
+	private String username;
+	private String fullname;
+	private Department department;
+	private Position position;
+	private Date createDate;
+	private GroupAccount[] groupAccounts;
 	
 	public Account() {
 	}
+
+	
 
 	public Account(int id, String email, String username, String firstname, String lastname) {
 		this.id = id;
@@ -44,6 +46,13 @@ public class Account {
 		this.position = position;
 		this.createDate = createDate;
 	}
+
+	public Account(String username) {
+		// TODO Auto-generated constructor stub
+		this.username = username;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -110,25 +119,25 @@ public class Account {
 	}
 
 	public String toString2() {
-		return "id:" + id + "\nEmail:" + email + 
+		return "Id:" + id + "\nEmail:" + email + 
 				"\nUsername:" + username + "\nfullname:" + fullname;
 	}
 	
 	public String toString3() {
-		return "id:" + id + "\nEmail:" + email + 
+		return "Id:" + id + "\nEmail:" + email + 
 				"\nUsername:" + username + "\nfullname:" + fullname + 
-				"\nDepartment:" + department.getName() + 
 				"\nPosition:" + position.getName() + "\ncreate date:" + createDate;
 	}
 
-	
 	@Override
 	public String toString() {
-		return "id:" + id + "\nemail:" + email + "\nusername:" + username + 
-				"\nfullname:" + fullname + "\ndepartment:" + department.getName() + 
-				"\nposition:" + position + "\ncreateDate:" + createDate	+ 
-				"\ngroupAccounts:" + Arrays.toString(groupAccounts) ;
+		return "\nId:" + id + "\nEmail:" + email + 
+				"\nUsername:" + username + "\nFullname:" + fullname + 
+				"\nDepartment:" + department + "\nPosition:" + position + 
+				"\nCreateDate:" + createDate + "\nGroupAccounts:" + Arrays.toString(groupAccounts) + "]";
 	}
+
+	
 	
 	
 }

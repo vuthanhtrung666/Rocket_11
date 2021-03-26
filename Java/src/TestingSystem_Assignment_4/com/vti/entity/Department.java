@@ -1,8 +1,8 @@
-package TestingSystem_Assignment_1;
+package TestingSystem_Assignment_4.com.vti.entity;
 
 public class Department {
-	public int id;
-	public String name;
+	private int id;
+	private String name;
 	
 	public Department() {
 	}
