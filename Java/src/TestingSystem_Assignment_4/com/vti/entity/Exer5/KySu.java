@@ -15,14 +15,14 @@ public class KySu extends CanBo{
 		super.input();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Ngành đào tạo:");
-		trainingIndustry = scanner.nextLine();
+		trainingIndustry = scanner.nextLine().trim();
 	}
 
 	@Override
 	public void getInfor() {
 		// TODO Auto-generated method stub
 		super.getInfor();
-		System.out.println("Ngành đào tạo :" + trainingIndustry);
+		System.out.printf("Ngành đào tạo:%s\n" , trainingIndustry);
 	}
 	
 }

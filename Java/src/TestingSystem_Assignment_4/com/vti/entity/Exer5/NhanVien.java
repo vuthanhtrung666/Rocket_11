@@ -15,14 +15,14 @@ public class NhanVien extends CanBo{
 		super.input();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Công việc:");
-		work = scanner.nextLine();
+		work = scanner.nextLine().trim();
 	}
 
 	@Override
 	public void getInfor() {
 		// TODO Auto-generated method stub
 		super.getInfor();
-		System.out.println("Công việc:" + work);
+		System.out.printf("Công việc:%s\n", work);
 	}
 	
 }

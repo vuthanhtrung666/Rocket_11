@@ -15,14 +15,14 @@ public class CongNhan extends CanBo{
 		super.input();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Nhập bậc của công nhân:");
-		tier = scanner.nextByte();
+		tier = Byte.parseByte(scanner.nextLine());
 	}
 
 	@Override
 	public void getInfor() {
 		// TODO Auto-generated method stub
 		super.getInfor();
-		System.out.println("Bậc   :" + tier);
+		System.out.printf("Bậc:%d\n" , tier);
 	}
 	
 }

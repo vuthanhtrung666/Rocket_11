@@ -108,7 +108,7 @@ public class Exercise_1_Constructor {
 		Account creator = new Account(1, "dang1@gmail.com", "dangblack1", "Nguyễn Hải", "Đăng1");
 		Account account2 = new Account(2, "dang2@gmail.com", "dangblack2", "Nguyễn Hải", "Đăng2");
 		Account account3 = new Account(3, "dang3@gmail.com", "dangblack3", "Nguyễn Hải", "Đăng3");
-		String[] usernames = { "dangblack1", "dangblack2", "dangblack3" };
+		String[] usernames = { creator.getUsername(), account2.getUsername(), account3.getUsername() };
 		Group group1 = new Group(2, "Boss of Director", creator, usernames, new Date("2020/05/15"));
 		System.out.println(group1);
 	}

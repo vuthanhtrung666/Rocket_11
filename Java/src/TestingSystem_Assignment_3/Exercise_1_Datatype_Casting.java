@@ -35,11 +35,11 @@ public class Exercise_1_Datatype_Casting {
 		
 //		Question 4:
 //		Viết 1 method nhập vào 2 số nguyên a và b và trả về thương của chúng
-//		System.out.println("so a:");
-//		int a = scanner.nextInt();
-//		System.out.println("so b:");
-//		int b = scanner.nextInt();
-//		question4(a,b);
+		System.out.println("so a:");
+		int a = scanner.nextInt();
+		System.out.println("so b:");
+		int b = scanner.nextInt();
+		question4(a,b);
 	}
 
 	private static void question4(int a, int b) {

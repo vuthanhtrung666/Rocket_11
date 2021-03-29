@@ -38,7 +38,9 @@ public class Student {
 	}
 	
 	public void addGrade(int a) {
-		this.academicGrade = this.academicGrade + a;
+		if(this.academicGrade + a <10) {
+			this.academicGrade = this.academicGrade + a;
+		}
 	}
 	
 	public String academic() {

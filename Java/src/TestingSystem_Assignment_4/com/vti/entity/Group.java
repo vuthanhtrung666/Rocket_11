@@ -9,7 +9,7 @@ public class Group {
 	private Account creator;
 	private Account[] accounts;
 	private Date createDate;
-	
+
 	public Group() {
 	}
 
@@ -20,36 +20,35 @@ public class Group {
 		this.accounts = accounts;
 		this.createDate = createDate;
 	}
-	
-	
 
-	public Group(int id, String name, Account creator, String[] username , Date createDate) {
+	public Group(int id, String name, Account creator, String[] username, Date createDate) {
 		this.id = id;
 		this.name = name;
 		this.creator = creator;
 		this.createDate = createDate;
 		Account[] accounts = new Account[username.length];
-		for(int i=0;i<username.length;i++) {
+		for (int i = 0; i < username.length; i++) {
 			accounts[i] = new Account(username[i]);
 		}
+		this.accounts = accounts;
 	}
 
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public Account getCreator() {
 		return creator;
 	}
@@ -69,18 +68,15 @@ public class Group {
 	public Date getCreateDate() {
 		return createDate;
 	}
-	
+
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 
 	@Override
 	public String toString() {
-		return "id:" + id + "\nname:" + name + 
-				"\nCreator:" + creator +
-				"\nAccounts:" + Arrays.toString(accounts)	+ 
-				"\ncreateDate:" + createDate;
+		return "id:" + id + "\nname:" + name + "\nCreator:" + creator + "\nAccounts:" + Arrays.toString(accounts)
+				+ "\ncreateDate:" + createDate;
 	}
-	
-	
+
 }

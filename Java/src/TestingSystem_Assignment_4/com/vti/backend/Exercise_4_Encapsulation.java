@@ -29,5 +29,5 @@ public class Exercise_4_Encapsulation {
 		System.out.println(student1);
 		System.out.println(student1.academic());
 	}
-	
+
 }

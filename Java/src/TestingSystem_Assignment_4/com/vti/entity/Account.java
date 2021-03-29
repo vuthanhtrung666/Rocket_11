@@ -12,47 +12,39 @@ public class Account {
 	private Position position;
 	private Date createDate;
 	private GroupAccount[] groupAccounts;
-	
+
 	public Account() {
 	}
-
-	
 
 	public Account(int id, String email, String username, String firstname, String lastname) {
 		this.id = id;
 		this.email = email;
 		this.username = username;
-		this.fullname = firstname +" "+ lastname;
+		this.fullname = firstname + " " + lastname;
 	}
 
-
-
-	public Account(int id, String email, String username, String firstname, String lastname, Position position ) {
+	public Account(int id, String email, String username, String firstname, String lastname, Position position) {
 		this.id = id;
 		this.email = email;
 		this.username = username;
-		this.fullname = firstname +" "+ lastname;
+		this.fullname = firstname + " " + lastname;
 		this.position = position;
 		this.createDate = new Date();
 	}
 
-	
-
-	public Account(int id, String email, String username, String firstname, String lastname, Position position, Date createDate) {
+	public Account(int id, String email, String username, String firstname, String lastname, Position position,
+			Date createDate) {
 		this.id = id;
 		this.email = email;
 		this.username = username;
-		this.fullname = firstname +" "+ lastname;
+		this.fullname = firstname + " " + lastname;
 		this.position = position;
 		this.createDate = createDate;
 	}
 
 	public Account(String username) {
-		// TODO Auto-generated constructor stub
 		this.username = username;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -119,25 +111,19 @@ public class Account {
 	}
 
 	public String toString2() {
-		return "Id:" + id + "\nEmail:" + email + 
-				"\nUsername:" + username + "\nfullname:" + fullname;
+		return "Id:" + id + "\nEmail:" + email + "\nUsername:" + username + "\nfullname:" + fullname;
 	}
-	
+
 	public String toString3() {
-		return "Id:" + id + "\nEmail:" + email + 
-				"\nUsername:" + username + "\nfullname:" + fullname + 
-				"\nPosition:" + position.getName() + "\ncreate date:" + createDate;
+		return "Id:" + id + "\nEmail:" + email + "\nUsername:" + username + "\nfullname:" + fullname + "\nPosition:"
+				+ position.getName() + "\ncreate date:" + createDate;
 	}
 
 	@Override
 	public String toString() {
-		return "\nId:" + id + "\nEmail:" + email + 
-				"\nUsername:" + username + "\nFullname:" + fullname + 
-				"\nDepartment:" + department + "\nPosition:" + position + 
-				"\nCreateDate:" + createDate + "\nGroupAccounts:" + Arrays.toString(groupAccounts) + "]";
+		return "\nId:" + id + "\nEmail:" + email + "\nUsername:" + username + "\nFullname:" + fullname + "\nDepartment:"
+				+ department + "\nPosition:" + position + "\nCreateDate:" + createDate + "\nGroupAccounts:"
+				+ Arrays.toString(groupAccounts) + "]";
 	}
 
-	
-	
-	
 }
