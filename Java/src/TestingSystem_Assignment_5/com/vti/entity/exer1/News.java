@@ -1,5 +1,7 @@
 package TestingSystem_Assignment_5.com.vti.entity.exer1;
 
+import java.util.Scanner;
+
 public class News implements INews {
 	private int id;
 	private String title;
@@ -7,54 +9,55 @@ public class News implements INews {
 	private String author;
 	private String content;
 	private float averageRate;
+	private Scanner sc;
+
+	public News() {
+		sc = new Scanner(System.in);
+		Input();
+		
+	}
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getPublishDate() {
 		return publishDate;
-	}
-
-	public void setPublishDate(String publishDate) {
-		this.publishDate = publishDate;
 	}
 
 	public String getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
 	public String getContent() {
 		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
 	}
 
 	public float getAverageRate() {
 		return averageRate;
 	}
 
+	public void Input() {
+		System.out.print("id:");
+		id = Integer.parseInt(sc.nextLine());
+		System.out.print("Title:");
+		title = sc.nextLine();
+		System.out.print("Publish date:");
+		publishDate = sc.nextLine();
+		System.out.print("Author:");
+		author = sc.nextLine();
+		System.out.print("Content:");
+		content = sc.nextLine();
+	}
+
 	@Override
-	public void Display() {
+	public void display() {
 		// 
+		System.out.println("Id:" + id);
 		System.out.println("Title:" + title);
 		System.out.println("Publish date:" + publishDate);
 		System.out.println("Author:" + author);
@@ -63,9 +66,13 @@ public class News implements INews {
 	}
 
 	@Override
-	public float Calculate() {
-		// TODO Auto-generated method stub
-		return 0;
+	public float calculate(int[] rates) {
+		// 
+		int tong=0;
+		for(int i=0;i<rates.length;i++) {
+			tong+=rates[i];
+		}
+		averageRate = (float) tong/rates.length; 
+		return averageRate;
 	}
-
 }
