@@ -66,9 +66,9 @@ public class Person {
 		System.out.print("Giới tính(0.Nam|1.Nữ):");
 		int gt = Integer.parseInt(sc.nextLine());
 		setGender(gt);
-//		System.out.print("Ngày sinh(dd/MM/yyyy):");
-//		String date = sc.next();
-//		birthday = new Date(date);
+		System.out.print("Ngày sinh(dd/MM/yyyy):");
+		String date = sc.next();
+		birthday = LocalDate.parse(date);
 		System.out.print("Địa chỉ:");
 		address = sc.nextLine();
 	}
