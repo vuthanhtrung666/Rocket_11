@@ -4,7 +4,7 @@ public class PrimaryStudent extends Student {
 
 	private static int countPrimary = 0;
 
-	public PrimaryStudent(int id, String name) {
+	public PrimaryStudent(int id, String name) throws Exception   {
 		super(id, name);
 		countPrimary += 1;
 	}

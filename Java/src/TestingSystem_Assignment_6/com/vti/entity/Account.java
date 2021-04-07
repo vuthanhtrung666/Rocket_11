@@ -19,7 +19,7 @@ public class Account {
 		System.out.println("Nhập id: ");
 		id = ScannerUtils.inputInt("Please input a number as int, please input again.");
 		System.out.println("Nhập email: ");
-		email = ScannerUtils.inputString("Please input a email, please input again.");
+		email = ScannerUtils.inputEmail();
 		System.out.println("Nhập username: ");
 		username = ScannerUtils.inputString("Please input a String, please input again.");
 		System.out.println("Nhập fullname: ");
@@ -50,7 +50,7 @@ public class Account {
 
 	private int inputAge() throws InvalidAgeInputingException {
 		int age = ScannerUtils.inputInt("Please input an age as int, please input again.");
-		if (age < 0) {
+		if (age <= 0) {
 			throw new InvalidAgeInputingException("The age must be greater than 0, please input again.");
 		}
 		return age;
@@ -61,7 +61,7 @@ public class Account {
 			try {
 				int age = inputAge();
 				if (age < 18) {
-					System.out.println("Your age must be greater than 18, please input again.");
+					throw new InvalidAgeInputingException("Your age must be greater than 18, please input again.");
 				} else {
 					return age;
 				}

@@ -6,8 +6,12 @@ public class Student {
 	private static String college;
 	private static int moneyGroup = 0;
 	private static int count = 0;
+	private static int maxStudent = 7;
 
-	public Student(int id, String name) {
+	public Student(int id, String name) throws Exception  {
+		if (count > maxStudent) {
+			throw new Exception("Không thể tạo quá 7 sinh viên");
+		}
 		this.id = id;
 		this.name = name;
 		this.moneyGroup += 100;

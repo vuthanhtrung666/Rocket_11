@@ -1,4 +1,4 @@
-package TestingSystem_Assignment_6.com.vti.backend;
+package TestingSystem_Assignment_7.com.vti.utils;
 
 import java.util.Scanner;
 
@@ -76,6 +76,18 @@ public class ScannerUtils {
 			} else {
 				System.err.println("email has @.");
 			}
+		}
+	}
+	public static String inputName() {
+		while(true) {
+			String name = inputString("Wrong inputing! The name is not empty");
+			String[] partname = name.split("\\s+");
+			String nameout = "";
+			for (int i = 0; i < partname.length; i++) {
+				String s3 = partname[i].substring(0, 1).toUpperCase();
+				nameout =nameout + s3 + partname[i].substring(1) + " ";
+			}
+			return nameout;
 		}
 	}
 }
