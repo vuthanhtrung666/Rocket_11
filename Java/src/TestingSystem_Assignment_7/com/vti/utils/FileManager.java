@@ -32,31 +32,39 @@ public class FileManager {
 
 	}
 
-	public static void isFileExists1(String path) {
+	public static void isFileExists1(String path) throws Exception {
 		boolean isExists = new File(path).exists();
-		System.out.println(isExists ? FILE_EXISTS : FILE_NOT_EXISTS);
-	}
-
-	public static void isFolderExists(String path) {
-		File file = new File(path);
-		if (file.exists()) {
-			boolean isFolder = new File(path).isDirectory();
-			System.out.println(isFolder ? FOLDER_EXISTS : FOLDER_NOT_EXISTS);
+		if(isExists) {
+			throw new Exception(FILE_EXISTS);
 		} else {
-			System.out.println(FILE_NOT_EXISTS);
+			throw new Exception(FILE_NOT_EXISTS);
 		}
 	}
 
-	public static void createNewFile(String path) throws IOException {
+	public static void isFolderExists(String path) throws Exception {
+		File file = new File(path);
+		if (file.exists()) {
+			boolean isFolder = new File(path).isDirectory();
+			if(isFolder) {
+				throw new Exception(FOLDER_EXISTS);
+			} else {
+				throw new Exception(FOLDER_NOT_EXISTS);
+			}
+		} else {
+			throw new Exception(FILE_NOT_EXISTS);
+		}
+	}
+
+	public static void createNewFile(String path) throws Exception {
 		File file = new File(path);
 		if (isFileExists(path)) {
-			System.out.println(FILE_EXISTS);
+			throw new Exception(FILE_EXISTS);
 		} else {
 			System.out.println(file.createNewFile() ? CREATE_FILE_SUCCESS : CREATE_FILE_FAIL);
 		}
 	}
 
-	public static void createNewFile(String path, String fileName) throws IOException {
+	public static void createNewFile(String path, String fileName) throws Exception {
 		String pathFile = path + "//" + fileName;
 		createNewFile(pathFile);
 	}

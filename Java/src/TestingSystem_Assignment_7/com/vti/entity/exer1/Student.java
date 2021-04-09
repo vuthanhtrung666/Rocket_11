@@ -9,7 +9,7 @@ public class Student {
 	private static int maxStudent = 7;
 
 	public Student(int id, String name) throws Exception  {
-		if (count > maxStudent) {
+		if (count >= maxStudent) {
 			throw new Exception("Không thể tạo quá 7 sinh viên");
 		}
 		this.id = id;

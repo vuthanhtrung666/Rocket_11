@@ -38,6 +38,7 @@ public class StudentManagement {
 	public void readfile() throws Exception {
 		List<Student> readObject = (List<Student>) IOManager.readObject(pathFile);
 		students = readObject;
+		
 	}
 
 	public void display() {

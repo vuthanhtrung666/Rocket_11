@@ -12,7 +12,7 @@ public class Program1 {
 //		sManagement.ques2();
 //		sManagement.ques3(5, 7);
 //		sManagement.ques5();
-//		sManagement.ques6();
+		sManagement.ques6();
 //		try {
 //			sManagement.ques7();
 //		} catch (Exception e) {
