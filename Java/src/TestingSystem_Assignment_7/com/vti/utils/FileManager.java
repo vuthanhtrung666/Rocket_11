@@ -2,9 +2,7 @@ package TestingSystem_Assignment_7.com.vti.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
@@ -72,9 +70,14 @@ public class FileManager {
 	public static void deleteFile(String pathFile) throws Exception {
 		File file = new File(pathFile);
 		if (isFileExists(pathFile)) {
-			System.out.println(file.delete() ? DELETE_FILE_SUCCESS : DELETE_FILE_FAIL);
+			if(file.delete()) {
+				throw new Exception(DELETE_FILE_SUCCESS);
+			} else {
+				throw new Exception(DELETE_FILE_FAIL);
+			}
+			
 		} else {
-			System.out.println(FILE_NOT_EXISTS);
+			throw new Exception(FILE_NOT_EXISTS);
 		}
 	}
 
@@ -146,9 +149,8 @@ public class FileManager {
 	}
 	
 	public static void downloadFile(String fileLink, String folder) throws Exception {
-		File file = new File(folder);
 		if(isFolder(folder)) {
-			System.out.println(FOLDER_NOT_EXISTS);
+			throw new Exception(FOLDER_NOT_EXISTS);
 		}
 		String[] s = fileLink.split("/");
 		String name = s[s.length - 1];

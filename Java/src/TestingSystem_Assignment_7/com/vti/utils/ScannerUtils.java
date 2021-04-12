@@ -1,5 +1,8 @@
 package TestingSystem_Assignment_7.com.vti.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class ScannerUtils {
@@ -43,6 +46,19 @@ public class ScannerUtils {
 			} else {
 				System.err.println(errorMessage);
 			}
+		}
+	}
+	
+	public static Date inputDate(String errorMessage) {
+		while(true) {
+			String dateString = sc.nextLine();
+			SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+			df.setLenient(false); 
+			try {
+				return df.parse(dateString);
+			} catch (ParseException e) {
+				System.err.println(errorMessage + "format:dd/MM/yyyy");
+			} 
 		}
 	}
 
