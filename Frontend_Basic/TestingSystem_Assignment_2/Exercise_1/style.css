@@ -1,0 +1,43 @@
+.margin{
+  margin: 70px;
+  border: 1px solid;
+}
+.padding{
+  padding: 70px;
+}
+.text-align{
+  text-align: center;
+}
+.blue{
+  color: blue;
+}
+.green{
+  color: green;
+}
+.backpink{
+  background-color: pink;
+}
+.backyellow{
+  background-color: yellow;
+}
+hr{
+  width: 50%;
+}
+.red{
+  color: red;
+}
+.border{
+  border: 2px solid;
+}
+span{
+  color: red;
+}
+.background{
+  background-color: burlywood;
+}
+.brown{
+  color: brown;
+}
+table,tr, td,th{
+  border: solid black;
+}
