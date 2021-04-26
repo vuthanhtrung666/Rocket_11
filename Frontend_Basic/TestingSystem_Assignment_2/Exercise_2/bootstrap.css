@@ -3949,7 +3949,7 @@ tbody.collapse.show {
   padding: 0.5rem 1rem;
 }
 
-.navbar > .container,
+.navbar > ,
 .navbar > .container-fluid {
   display: -webkit-box;
   display: -ms-flexbox;

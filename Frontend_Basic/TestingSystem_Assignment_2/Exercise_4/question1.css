@@ -1,0 +1,9 @@
+section{
+    width: 300px;
+    
+}
+input{
+    float: right;
+    background-color: blue;
+    color: white;
+}
