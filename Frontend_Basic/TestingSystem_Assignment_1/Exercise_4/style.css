@@ -65,3 +65,14 @@ hr{
 table,tr, td,th{
   border: 1px solid black;
 }
+.img{
+  text-align: center;
+}
+body{
+  background-color: lightgray;
+}
+.body{
+  background-color: white;
+  margin-top: 40px;
+  width: 50%;
+}

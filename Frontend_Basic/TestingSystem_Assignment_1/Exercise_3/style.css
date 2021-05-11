@@ -1,48 +1,10 @@
-.header{
-  color:BLUE;
+div{
+  margin-top: 50px;
 }
-.param{
-  color: RED;
-}
-.background1{
-  background-color: RED;
-}
-.background2{
-  background-color:Orange;
-}
-.background3{
-  background-color:DodgerBlue;
-}
-.background4{
-  background-color: MediumSeaGreen;
-}
-.background5{
-  background-color: Gray;
-}
-.background6{
-  background-color: SlateBlue;
-}
-.background7{
-  background-color: Violet;
-}
-.background8{
-  background-color: LightGray;
-}
-.border1{
-  border-color: RED;
-  border-spacing: 1;
-  border-style: solid;
-}
-.border2{
-  border-color: BLUE;
-  border-spacing: 1;
-  border-style: solid;
-}
-.border3{
-  border-style: solid ;
-  border-color: Violet;
-  border-spacing: 1;
-}
-table,tr, td,th{
+
+table,th,td{
   border: 1px solid black;
+}
+table{
+  margin: auto;
 }

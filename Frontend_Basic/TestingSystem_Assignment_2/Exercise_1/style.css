@@ -1,9 +1,10 @@
 .margin{
   margin: 70px;
-  border: 1px solid;
+  border: 1px solid black;
 }
 .padding{
   padding: 70px;
+  border: 1px solid black;
 }
 .text-align{
   text-align: center;
@@ -40,4 +41,11 @@ span{
 }
 table,tr, td,th{
   border: solid black;
+}
+.style1{
+  border: 1px solid red;
+  padding: 70px 0;
+}
+.style2{
+  border: 1px solid green;
 }

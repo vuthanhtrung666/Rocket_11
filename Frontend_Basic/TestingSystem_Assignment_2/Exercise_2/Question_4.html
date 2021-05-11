@@ -10,12 +10,11 @@
             border: 2px solid blue;
             width: 400px;
             height: 400px;
-            margin: 100px auto;
-            text-align: center;  
+            margin: 100px auto; 
             display: flex;
-            align-items: center;
+            align-items: flex-end;
+            align-content: flex-end;
             justify-content: center;
-            
         }
 
         .box{
@@ -23,13 +22,37 @@
             height: 100px;
             background-color: red;
             position: relative;
-            display: inline-block;
+            align-self: center;
+            
+        }
+
+        .container1{
+            border: 2px solid blue;
+            width: 400px;
+            height: 400px;
+            margin: 100px auto; 
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            align-self: flex-end;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="box">
+        </div>
+    </div>
+    <br>
+    <div class="container1">
+        <div class="box1">
 
         </div>
     </div>

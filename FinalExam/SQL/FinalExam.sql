@@ -122,3 +122,4 @@ FROM 	location
 WHERE 	Location_id = '10';
 SELECT	* 	
 FROM	employee
+

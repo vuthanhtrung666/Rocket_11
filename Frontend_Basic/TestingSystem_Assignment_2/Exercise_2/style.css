@@ -15,7 +15,10 @@
   color: green;
 }
 .backpink{
-  background-color: pink;
+  background-color: lightpink;
+}
+.light{
+  color: rgb(248, 55, 87);
 }
 .backyellow{
   background-color: yellow;
@@ -28,36 +31,40 @@ hr{
 }
 .border{
   border: 2px solid;
+  padding: 0 70px;
 }
 span{
   color: red;
 }
 .row{
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
 }
-.col12{
-  width: 100%;
-  display: inline-block;
+.col-3{
+  flex-grow: 3;
+  box-sizing: border-box;
 }
-.col3{
-  width: 25%;
-  display: inline-block;
+.col-9{
+  flex-grow: 9;
+  box-sizing: border-box;
 }
-.col9{
-  width: 75%;
-  display: inline-block;
+.col-6{
+  flex-grow: 6;
+  box-sizing: border-box;
+}
+.flex-container{
+  display: flex;
+  align-items: flex-end;
 }
 .background{
   background-color: burlywood;
+  padding-top: 10px;
 }
 .brown{
   color: brown;
+  font-size: 42px;
 }
 table,tr, td,th{
   border: 1px solid black;
@@ -77,8 +84,26 @@ table,tr, td,th{
 .backwhite{
   background-color: white;
 }
-table.center { width: 780px; margin-left: auto; margin-right: auto; }
+.center { 
+  width: 780px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  background-color: lightgreen;
+  color: green;
+}
+
 .white{
   background-color: red;
   color: white;
+}
+td{
+  padding: 10px;
+}
+.pink{
+  color: rgb(243, 93, 118);
+  font-size: 42px;
+}
+.img1{
+  align-self: center;
+  padding: 50px;
 }
