@@ -17,6 +17,7 @@ import com.vti.entity.RegistrationUserToken;
 import com.vti.entity.ResetPasswordToken;
 import com.vti.entity.TestingCategory;
 import com.vti.entity.User;
+import com.vti.entity.UserGroup;
 
 public class HibernateUtils {
 
@@ -84,6 +85,7 @@ public class HibernateUtils {
 		configuration.addAnnotatedClass(Question.class);
 		configuration.addAnnotatedClass(QuestionCategory.class);
 		configuration.addAnnotatedClass(QuestionLevel.class);
+		configuration.addAnnotatedClass(UserGroup.class);
 	}
 
 	/**

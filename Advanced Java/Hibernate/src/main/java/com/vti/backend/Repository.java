@@ -16,6 +16,7 @@ import com.vti.entity.RegistrationUserToken;
 import com.vti.entity.ResetPasswordToken;
 import com.vti.entity.TestingCategory;
 import com.vti.entity.User;
+import com.vti.entity.UserGroup;
 import com.vti.utils.HibernateUtils;
 
 public class Repository {
@@ -35,6 +36,42 @@ public class Repository {
 			// create hql query
 			Query<User> query = session.createQuery("FROM User");
 			return query.list();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	public void createUser(User user) {
+		Session session = null;
+		try {
+			// get session
+			session = hibernateUtils.openSession();
+			session.beginTransaction();
+			// create
+			session.save(user);
+			session.getTransaction().commit();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	public void deleteUser(short id) {
+
+		Session session = null;
+
+		try {
+			// get session
+			session = hibernateUtils.openSession();
+			session.beginTransaction();
+			// get department
+			User user = (User) session.load(User.class, id);
+			// delete
+			session.delete(user);
+			session.getTransaction().commit();
 		} finally {
 			if (session != null) {
 				session.close();
@@ -178,6 +215,22 @@ public class Repository {
 			session = hibernateUtils.openSession();
 			// create hql query
 			Query<QuestionCategory> query = session.createQuery("FROM QuestionCategory");
+			return query.list();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<UserGroup> getAllUserGroups() {
+		Session session = null;
+		try {
+			// get session
+			session = hibernateUtils.openSession();
+			// create hql query
+			Query<UserGroup> query = session.createQuery("FROM UserGroup");
 			return query.list();
 		} finally {
 			if (session != null) {

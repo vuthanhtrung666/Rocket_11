@@ -3,11 +3,14 @@ package com.vti.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,6 +29,10 @@ public class Group implements Serializable {
 	
 	@Column(name = "name", length = 50, unique = true, nullable = false)
 	private String name;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "author_ID", referencedColumnName = "id")
+	private User author;
 	
 	@Column(name = "create_time", nullable = false, updatable = false, insertable = false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -52,6 +59,19 @@ public class Group implements Serializable {
 		this.name = name;
 	}
 
+	
+	public User getUser() {
+		return author;
+	}
+
+	public void setUser(User user) {
+		this.author = user;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -62,8 +82,9 @@ public class Group implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Group [id=" + id + ", name=" + name + ", createTime=" + createTime + "]";
+		return "Group [id=" + id + ", name=" + name + ", authorId=" + author.getId() + ", createTime=" + createTime + "]";
 	}
+
 	
 	
 }

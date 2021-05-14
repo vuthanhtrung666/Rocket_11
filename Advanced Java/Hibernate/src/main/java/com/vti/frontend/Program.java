@@ -14,10 +14,12 @@ import com.vti.entity.RegistrationUserToken;
 import com.vti.entity.ResetPasswordToken;
 import com.vti.entity.TestingCategory;
 import com.vti.entity.User;
+import com.vti.entity.UserGroup;
 import com.vti.utils.ScannerUtils;
 
 
 public class Program {
+	
 	public static void main(String[] args) {
 		Repository repository = new Repository();
 		int choose;
@@ -103,6 +105,31 @@ public class Program {
 					System.out.println(QuestionLevel);
 				}
 				break;
+			case 12:
+//				System.out.println("***********CREATE USER***********");
+//				User userCreate = new User();
+//				userCreate.setUsername("Trung123456789");
+//				userCreate.setEmail("Trung123456789");
+//				userCreate.setAddress("Trung123456789");
+//				userCreate.setFirstName("Trung123456789");
+//				userCreate.setGender(Gender.M);
+//				userCreate.setLastName("Trung123456789");
+//				userCreate.setPhone("1111111111");
+//				userCreate.setDateOfBirth(new Date("2000/04/24"));
+//				userCreate.setPassword("1111111111");
+//				userCreate.setRole(Role.Employee);
+//				userCreate.setStatus(Status.NotActive);
+//				repository.createUser(userCreate);
+				System.out.println("***********GET ALL USER GROUP***********");
+				List<UserGroup> UserGroups = repository.getAllUserGroups();
+				for (UserGroup UserGroup : UserGroups) {
+					System.out.println(UserGroup);
+				}
+				break;
+			case 13:
+//				System.out.println("***********DELETE DEPARTMENTS***********");
+//				repository.deleteUser((short) 17);
+				break;
 			case 0:
 				System.out.println("Thoát!");
 				return;
@@ -126,6 +153,8 @@ public class Program {
 		System.out.println("9) ResetPasswordToken");
 		System.out.println("10) QuestionCategory");
 		System.out.println("11) Question level");
+		System.out.println("12) Group User");
+//		System.out.println("13) Delete User");
 		System.out.println("0) Thoát");
 	}
 }
